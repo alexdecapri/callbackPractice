@@ -22,12 +22,15 @@ and what you should write is the sayHi function that makes the code above work,
     
 */
 
+//had to code the first part after looking at the second part
 
-
-  //Code Here for first
+function first(arr, cb) { // chose "arr" because if you look below, they are passing in an array of names
+  cb(arr[0]);
+}
   
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
 first(names, function(firstName){
   console.log('The first name in names is ' + firstName)
 });
@@ -40,6 +43,10 @@ first(names, function(firstName){
 
 
   //Code Here for last
+
+function last(arr, cb) {
+  cb(arr[arr.length - 1]);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -59,6 +66,10 @@ last(names, function(lastName){
 
   //Code Here for multiply
 
+function multiply(num1, num2, cb) {
+  cb(num1 * num2);
+}
+
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
 })
@@ -74,6 +85,11 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+
+
+
+
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -94,6 +110,10 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
+
+function uniq(arr, cb) {
+  cb(arr[i]);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
