@@ -87,7 +87,15 @@ multiply(4, 3, function(answer){
   //Code Here for contains
 
 
-
+function contains(arr, str, cb) {
+  var isInArr = false;
+  arr.forEach(function(item){
+    if (str === item) {
+      isInArr = true;
+    }
+  });
+  return cb(isInArr);
+}
 
 
 
@@ -112,7 +120,15 @@ contains(names, 'Colt', function(result){
     //Code Here for uniq
 
 function uniq(arr, cb) {
-  cb(arr[i]);
+  var obj = {};
+  var uniqArr = [];
+  arr.forEach(function(item) { //using objects because can't have duplicate keys
+    obj[item] = item;
+  });
+  for (var key in obj) {
+    uniqArr.push(key);
+  }
+  return cb(uniqArr);
 }
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -131,6 +147,14 @@ uniq(names, function(uniqArr){
 
     //Code Here for each
 
+
+function each(arr, cb) {
+  arr.forEach(function(item, i) {
+    arr[i] = item;
+  });
+  return cb(item, i);
+}
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -147,6 +171,10 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
+
+function getUserById(arr, str, cb) {
+
+}
 
 var users = [
   {
@@ -170,5 +198,6 @@ var users = [
 ];
 
 getUserById(users, '16t', function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
+  console.log('The user with the id 16t has the email of ' + user.email + 
+    ' the name of ' + user.name + ' and the address of ' + user.address); 
 });
